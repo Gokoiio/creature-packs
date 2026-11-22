@@ -101,7 +101,7 @@ dpependencies {
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
     kotlinOptions {
-        jvmTarget = "1.8"
+        vmTarget = "1.8"
     }
 }
 
@@ -109,4 +109,5 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).conf
 ksp {
     arg("room.verifyDatabase", "false")
 }
+
 
