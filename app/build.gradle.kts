@@ -63,12 +63,13 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
 
     buildFeatures {
-        bompose = true
+        compose = true
     }
 
     composeOptions {
@@ -77,13 +78,15 @@ android {
 
 
 
-    resources {
-        excludes += "/META-INF/{AL2.0,LGPL2.1,LGPL3.0,}.txt"
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1,LGPL3.0,}.txt"
+        }
     }
 }
 
-dpependencies {
-    implementation(platform(libs.androidx.room.compose.bom))
+dependencies {
+    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
@@ -101,7 +104,7 @@ dpependencies {
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
     kotlinOptions {
-        vmTarget = "1.8"
+        jvmTarget = "1.8"
     }
 }
 
