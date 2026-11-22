@@ -68,21 +68,13 @@ android {
     }
 
     buildFeatures {
-        compose = true
+        bompose = true
     }
 
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.3"
     }
-afterEvaluate {
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
-        if (!name.startsWith("ksp") && !name.startsWith("kapt")) {
-            kotlinOptions {
-                freeCompilerArgs += "-P plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=true"
-            }
-        }
-    }
-}
+
 
     packaging {
         resources {
