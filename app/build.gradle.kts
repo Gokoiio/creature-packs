@@ -68,7 +68,7 @@ android {
     }
 
     buildFeatures {
-        bompose = true
+        compose = true
     }
 
     composeOptions {
