@@ -22,6 +22,7 @@ android {
         getByName("debug") {
             val debugKeystore = file("$buildDir/debug.keystore")
             if (!debugKeystore.exists()) {
+                debugKeystore.parentFile.mkdirs()
                 val keytool = "${System.getenv("JAVA_HOME")}/bin/keytool"
                 project.exec {
                     commandLine(
@@ -62,19 +63,17 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-
     kotlinOptions {
         jvmTarget = "1.8"
     }
 
     buildFeatures {
-        compose = true
+        bompose = true
     }
 
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.3"
     }
-
 afterEvaluate {
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
         if (!name.startsWith("ksp") && !name.startsWith("kapt")) {
