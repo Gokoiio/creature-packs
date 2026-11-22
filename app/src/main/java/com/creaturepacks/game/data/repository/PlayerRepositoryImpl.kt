@@ -5,6 +5,7 @@ import com.creaturepacks.game.data.local.datastore.SettingsDataStore
 import com.creaturepacks.game.domain.model.PlayerStats
 import com.creaturepacks.game.domain.repository.PlayerRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
 class PlayerRepositoryImpl(
