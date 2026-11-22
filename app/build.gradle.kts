@@ -19,7 +19,7 @@ android {
     }
 
     signingConfigs {
-        create("debug") {
+        getByName("debug") {
             val debugKeystore = file("$buildDir/debug.keystore")
             if (!debugKeystore.exists()) {
                 val keytool = "${System.getenv("JAVA_HOME")}/bin/keytool"
