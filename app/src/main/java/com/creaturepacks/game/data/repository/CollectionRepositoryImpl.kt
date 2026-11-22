@@ -2,6 +2,7 @@ package com.creaturepacks.game.data.repository
 
 import com.creaturepacks.game.data.local.room.AppDatabase
 import com.creaturepacks.game.domain.model.Card
+import com.creaturepacks.game.domain.repository.CardRepository
 import com.creaturepacks.game.domain.repository.CollectionRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
