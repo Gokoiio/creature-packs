@@ -28,11 +28,9 @@ jobs:
           cache: gradle
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          api-level: 35
-          cmdline-tools-version: latest
-          licenses: true
+        run: |
+          echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-35" "build-tools;35.0.0" --sdk_root=${ANDROID_HOME}
+          echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses --sdk_root=${ANDROID_HOME}
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
@@ -41,6 +39,7 @@ jobs:
         run: ./gradlew :app:assembleDebug --no-daemon -Dorg.gradle.jvmargs="-Xmx2048m" --console=plain
         env:
           GRADLE_OPTS: "-Dorg.gradle.native=false -Dorg.gradle.unsafe.native=false"
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
@@ -76,11 +75,9 @@ jobs:
           cache: gradle
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          api-level: 35
-          cmdline-tools-version: latest
-          licenses: true
+        run: |
+          echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-35" "build-tools;35.0.0" --sdk_root=${ANDROID_HOME}
+          echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses --sdk_root=${ANDROID_HOME}
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
@@ -89,6 +86,7 @@ jobs:
         run: ./gradlew :app:assembleRelease --no-daemon -Dorg.gradle.jvmargs="-Xmx2048m" --console=plain
         env:
           GRADLE_OPTS: "-Dorg.gradle.native=false -Dorg.gradle.unsafe.native=false"
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
 
       - name: Upload Release APK
         uses: actions/upload-artifact@v4
