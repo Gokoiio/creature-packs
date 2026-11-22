@@ -1,7 +1,8 @@
 package com.creaturepacks.game.data.local.datastore
 
 import android.content.Context
-import androidx.datastore.preferences.Preferences
+import androidx.datastore.preferences.core.DataStore
+import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.preferencesDataStore
 import androidx.datastore.preferences.core.intPreferencesKey
@@ -13,7 +14,7 @@ import kotlinx.coroutines.flow.map
 private const val FILE_NAME = "creature_packs_settings.pb"
 
 object SettingsDataStore {
-    private var dataStore: androidx.datastore.preferences.core.DataStore<Preferences>? = null
+    private var dataStore: DataStore<Preferences>? = null
 
     fun init(context: Context) {
         if (dataStore == null) {
@@ -21,7 +22,7 @@ object SettingsDataStore {
         }
     }
 
-    private val store: androidx.datastore.preferences.core.DataStore<Preferences>
+    private val store: DataStore<Preferences>
         get() = dataStore ?: throw IllegalStateException(
             "SettingsDataStore not initialized. Call SettingsDataStore.init(context) first."
         )
