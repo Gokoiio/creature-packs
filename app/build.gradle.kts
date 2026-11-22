@@ -76,15 +76,14 @@ android {
     }
 
 
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1,LGPL3.0,}.txt"
-        }
+
+    resources {
+        excludes += "/META-INF/{AL2.0,LGPL2.1,LGPL3.0,}.txt"
     }
 }
 
-dependencies {
-    implementation(platform(libs.androidx.compose.bom))
+dpependencies {
+    implementation(platform(libs.androidx.room.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
