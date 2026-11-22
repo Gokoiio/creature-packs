@@ -1,0 +1,29 @@
+# Gradle
+.gradle/
+build/
+app/build/
+*.iml
+
+# Local configuration
+local.properties
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# Build outputs
+*.apk
+*.aab
+*.ap_
+
+# Harness
+.harness/
+
+# Gradle wrapper
+gradle/wrapper/gradle-wrapper.jar

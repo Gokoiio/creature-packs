@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.CreaturePacks" parent="android:Theme">
+        <item name="android:windowBackground">@color/surface_dark</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+</resources>

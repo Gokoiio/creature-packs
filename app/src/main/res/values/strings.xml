@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Creature Packs</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_collection">Collection</string>
+    <string name="tab_booster_shop">Booster Shop</string>
+    <string name="tab_profile">Profile</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Welcome back, Trainer</string>
+    <string name="home_level">Level</string>
+    <string name="home_collection_progress">Collection</string>
+    <string name="home_featured">Featured Boosters</string>
+    <string name="home_daily">Daily Reward</string>
+    <string name="home_claim">Claim</string>
+    <string name="home_owned">Owned</string>
+
+    <!-- Collection -->
+    <string name="collection_title">Card Collection</string>
+    <string name="collection_search">Search creatures</string>
+    <string name="collection_filter_rarity">Rarity</string>
+    <string name="collection_all_rarities">All Rarities</string>
+    <string name="collection_owned">Owned</string>
+    <string name="collection_missing">Missing</string>
+    <string name="collection_dupes">Duplicates</string>
+    <string name="collection_empty">No cards yet. Open some boosters!</string>
+    <string name="collection_card_details">Card Details</string>
+    <string name="collection_quantity">Quantity</string>
+    <string name="collection_duplicate_of">Duplicate</string>
+
+    <!-- Booster Shop -->
+    <string name="shop_title">Booster Shop</string>
+    <string name="shop_series">Series</string>
+    <string name="shop_price">Price</string>
+    <string name="shop_open">Open</string>
+    <string name="shop_locked">Locked</string>
+    <string name="shop_coming_soon">Coming Soon</string>
+    <string name="shop_currency">Credits</string>
+    <string name="shop_unlock_requirement">Complete the %s series to unlock</string>
+    <string name="shop_not_enough_currency">Not enough credits</string>
+
+    <!-- Profile -->
+    <string name="profile_title">Profile</string>
+    <string name="profile_stat_packs_opened">Packs Opened</string>
+    <string name="profile_stat_rare_discovered">Rare Discoveries</string>
+    <string name="profile_stat_collection_complete">Collection Complete</string>
+    <string name="profile_achievements">Achievements</string>
+    <string name="profile_no_achievements_yet">No achievements unlocked yet</string>
+
+    <!-- Encyclopedia (placeholder) -->
+    <string name="encyclopedia_title">Encyclopedia</string>
+    <string name="encyclopedia_coming_soon">The Encyclopedia is being prepared for a future update.</string>
+
+    <!-- Generic -->
+    <string name="credits">credits</string>
+    <string name="ok">OK</string>
+    <string name="close">Close</string>
+</resources>

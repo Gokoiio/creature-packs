@@ -1,0 +1,80 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="340dp"
+    android:viewportWidth="240"
+    android:viewportHeight="340">
+    <!-- Legendary card template - grand majestic design -->
+    <group android:translateX="120" android:translateY="170">
+        <!-- Card background -->
+        <path
+            android:pathData="M-100,-150 L100,-150 L100,150 L-100,150 z"
+            android:fillColor="#1A1810"
+            android:strokeWidth="4"
+            android:strokeColor="@color/rarity_legendary"/>
+        <!-- Gold ornamental frame outer -->
+        <path
+            android:pathData="M-95,-145 L95,-145 L95,145 L-95,145 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="2"
+            android:strokeColor="@color/rarity_legendary"
+            android:strokeAlpha="0.9"/>
+        <!-- Gold ornamental frame inner -->
+        <path
+            android:pathData="M-88,-138 L88,-138 L88,138 L-88,138 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="1.5"
+            android:strokeColor="@color/rarity_legendary"
+            android:strokeAlpha="0.7"/>
+        <!-- Art area with grand ornate corners -->
+        <path
+            android:pathData="M-80,-105 Q-90,-105 -90,-95 L-90,-5 Q-90,5 -80,5 L80,5 Q90,5 90,-5 L90,-95 Q90,-105 80,-105 L-80,-105 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="3"
+            android:strokeColor="@color/rarity_legendary"
+            android:strokeAlpha="1.0"/>
+        <!-- Corner ornaments -->
+        <path
+            android:pathData="M-85,-100 L-85,-90 M-80,-95 L-90,-95 M85,-100 L-85,-90 M80,-95 L90,-95 M-85,0 L-85,10 M-80,5 L-90,5 M85,0 L85,10 M80,5 L90,5"
+            android:strokeWidth="3"
+            android:strokeColor="@color/rarity_legendary"
+            android:strokeLineCap="round"/>
+        <!-- Creature silhouette - legendary beast -->
+        <path
+            android:pathData="M-60,0 Q-60,-40 -30,-70 Q0,-70 0,-30 L15,-30 L15,90 Q15,115 -10,115 L-20,115 Q-45,115 -45,90 L-45,0 z"
+            android:fillColor="@color/rarity_legendary"
+            android:strokeWidth="1"
+            android:strokeColor="@color/rarity_legendary_dark"/>
+        <!-- Inner radiant pattern -->
+        <path
+            android:pathData="M-45,5 Q-45,-20 -20,-40 Q5,-40 5,-10 L10,-10 L10,70 Q10,85 0,85 L-5,85 Q-15,85 -15,70 L-15,5 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="2"
+            android:strokeColor="@color/rarity_legendary_dark"
+            android:strokeAlpha="0.6"/>
+        <!-- Radiant lines -->
+        <path
+            android:pathData="M0,-65 L0,-85 M-15,-75 L-25,-85 M15,-75 L25,-85 M-30,-55 L-40,-65 M30,-55 L40,-65 M-35,-30 L-45,-40 M35,-30 L45,-40 M-40,-5 L-50,-15 M40,-5 L50,-15 M-40,20 L-50,30 M40,20 L50,30 M-30,45 L-40,55 M30,45 L40,55"
+            android:strokeWidth="2.5"
+            android:strokeColor="@color/rarity_legendary"
+            android:strokeAlpha="0.8"
+            android:strokeLineCap="round"/>
+        <!-- Golden particles -->
+        <path
+            android:pathData="M-60,-130 L-55,-125 M60,-130 L55,-125 M-40,-140 L-35,-135 M40,-140 L35,-135 M-75,-100 L-70,-95 M75,-100 L70,-95 M-80,-20 L-75,-15 M80,-20 L75,-15 M-70,70 L-65,75 M70,70 L65,75"
+            android:strokeWidth="2"
+            android:strokeColor="@color/rarity_legendary"
+            android:strokeAlpha="1.0"
+            android:strokeLineCap="round"/>
+        <!-- Rarity gems - large -->
+        <path
+            android:pathData="M-82,-147 L-52,-147 L-52,-107 L-82,-107 z M52,-147 L82,-147 L82,-107 L52,-107 z"
+            android:fillColor="@color/rarity_legendary"/>
+        <!-- Gold filigree -->
+        <path
+            android:pathData="M-95,-130 Q-95,-125 -90,-125 M95,-130 Q95,-125 90,-125 M-95,120 Q-95,125 -90,125 M95,120 Q95,125 90,125"
+            android:strokeWidth="4"
+            android:strokeColor="@color/rarity_legendary"
+            android:strokeAlpha="0.6"
+            android:strokeLineCap="round"/>
+    </group>
+</vector>

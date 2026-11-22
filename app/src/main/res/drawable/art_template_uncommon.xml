@@ -1,0 +1,59 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="340dp"
+    android:viewportWidth="240"
+    android:viewportHeight="340">
+    <!-- Uncommon card template - organic flowing design -->
+    <group android:translateX="120" android:translateY="170">
+        <!-- Card background -->
+        <path
+            android:pathData="M-100,-150 L100,-150 L100,150 L-100,150 z"
+            android:fillColor="#1E1F29"
+            android:strokeWidth="3"
+            android:strokeColor="@color/rarity_uncommon"/>
+        <!-- Inner frame with subtle curve -->
+        <path
+            android:pathData="M-90,-140 L90,-140 L90,140 L-90,140 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="1"
+            android:strokeColor="@color/rarity_uncommon"
+            android:strokeAlpha="0.4"/>
+        <!-- Art area frame with organic corners -->
+        <path
+            android:pathData="M-80,-120 Q-85,-120 -85,-115 L-85,15 Q-85,20 -80,20 L80,20 Q85,20 85,15 L85,-115 Q85,-120 80,-120 L-80,-120 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="2"
+            android:strokeColor="@color/rarity_uncommon"
+            android:strokeAlpha="0.5"/>
+        <!-- Creature silhouette - more detailed beast -->
+        <path
+            android:pathData="M-45,15 Q-45,-15 -15,-45 Q15,-45 15,-10 L25,-10 L25,70 Q25,90 5,90 L-5,90 Q-25,90 -25,70 L-25,15 z"
+            android:fillColor="@color/rarity_uncommon"
+            android:strokeWidth="1"
+            android:strokeColor="@color/rarity_uncommon_dark"/>
+        <!-- Inner pattern - leaf/energy veins -->
+        <path
+            android:pathData="M-30,10 Q-30,-5 -10,-15 Q10,-15 10,5 L15,5 L15,50 Q15,60 0,60 L-5,60 Q-15,60 -15,50 L-15,10 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="1.5"
+            android:strokeColor="@color/rarity_uncommon_dark"
+            android:strokeAlpha="0.6"/>
+        <!-- Flowing accent lines -->
+        <path
+            android:pathData="M-70,-100 Q-70,-110 -60,-110 M70,-100 Q70,-110 60,-110 M-75,0 Q-85,0 -85,10 M75,0 Q85,0 85,10 M-70,70 Q-70,80 -60,80 M70,70 Q70,80 60,80"
+            android:strokeWidth="3"
+            android:strokeColor="@color/rarity_uncommon"
+            android:strokeLineCap="round"/>
+        <!-- Rarity indicator gems -->
+        <path
+            android:pathData="M-75,-135 L-60,-135 L-60,-120 L-75,-120 z M60,-135 L75,-135 L75,-120 L60,-120 z"
+            android:fillColor="@color/rarity_uncommon"/>
+        <!-- Side accents -->
+        <path
+            android:pathData="M-95,-100 L-90,-100 M95,-100 L90,-100 M-95,50 L-90,50 M95,50 L90,50"
+            android:strokeWidth="4"
+            android:strokeColor="@color/rarity_uncommon"
+            android:strokeAlpha="0.5"
+            android:strokeLineCap="round"/>
+    </group>
+</vector>

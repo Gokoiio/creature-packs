@@ -1,0 +1,41 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="300dp"
+    android:viewportWidth="200"
+    android:viewportHeight="300">
+    <!-- Genesis booster pack -->
+    <path
+        android:pathData="M20,30 L180,30 L180,270 Q180,285 165,285 L35,285 Q20,285 20,270 z"
+        android:fillColor="#16171F"
+        android:strokeWidth="3"
+        android:strokeColor="#8B5CF6"/>
+    <path
+        android:pathData="M35,50 L165,50 L165,265 Q165,275 155,275 L45,275 Q35,275 35,265 z"
+        android:fillColor="#0A0B0F"
+        android:strokeWidth="1"
+        android:strokeColor="#272830"/>
+    <path
+        android:pathData="M50,80 L150,80 L150,235 L50,235 z"
+        android:fillColor="#00000000"
+        android:strokeWidth="2"
+        android:strokeColor="#8B5CF6"
+        android:strokeAlpha="0.5"/>
+    <path
+        android:pathData="M65,100 L135,100 L135,215 L65,215 z"
+        android:fillColor="#00000000"
+        android:strokeWidth="1.5"
+        android:strokeColor="#5B21B6"
+        android:strokeAlpha="0.4"/>
+    <group android:translateX="100" android:translateY="140">
+        <path
+            android:pathData="M0,-40 L25,-10 L70,-10 L40,15 L55,60 L0,35 L-55,60 L-40,15 L-70,-10 L-25,-10 z"
+            android:fillColor="#8B5CF6"
+            android:strokeWidth="2"
+            android:strokeColor="#C4B5FD"/>
+        <path
+            android:pathData="M0,-30 L15,-5 L50,0 L25,10 L35,35 L0,25 L-35,35 L-25,10 L-50,0 L-15,-5 z"
+            android:fillColor="#5B21B6"
+            android:strokeWidth="1.5"
+            android:strokeColor="#EDE9FE"/>
+    </group>
+</vector>

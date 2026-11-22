@@ -1,0 +1,66 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="340dp"
+    android:viewportWidth="240"
+    android:viewportHeight="340">
+    <!-- Rare card template - sharp geometric design with glow -->
+    <group android:translateX="120" android:translateY="170">
+        <!-- Card background with gradient suggestion -->
+        <path
+            android:pathData="M-100,-150 L100,-150 L100,150 L-100,150 z"
+            android:fillColor="#1A1B24"
+            android:strokeWidth="3"
+            android:strokeColor="@color/rarity_rare"/>
+        <!-- Outer glow frame -->
+        <path
+            android:pathData="M-95,-145 L95,-145 L95,145 L-95,145 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="1.5"
+            android:strokeColor="@color/rarity_rare"
+            android:strokeAlpha="0.3"/>
+        <!-- Inner frame -->
+        <path
+            android:pathData="M-88,-138 L88,-138 L88,138 L-88,138 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="1"
+            android:strokeColor="@color/rarity_rare"
+            android:strokeAlpha="0.5"/>
+        <!-- Art area frame with sharp corners -->
+        <path
+            android:pathData="M-80,-115 L80,-115 L80,25 L-80,25 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="2.5"
+            android:strokeColor="@color/rarity_rare"
+            android:strokeAlpha="0.7"/>
+        <!-- Creature silhouette - majestic beast -->
+        <path
+            android:pathData="M-50,10 Q-50,-30 -20,-55 Q10,-55 10,-20 L25,-20 L25,80 Q25,100 0,100 L-10,100 Q-35,100 -35,80 L-35,10 z"
+            android:fillColor="@color/rarity_rare"
+            android:strokeWidth="1"
+            android:strokeColor="@color/rarity_rare_dark"/>
+        <!-- Inner geometric pattern -->
+        <path
+            android:pathData="M-35,5 Q-35,-15 -15,-30 Q5,-30 5,0 L15,0 L15,60 Q15,70 0,70 L-5,70 Q-15,70 -15,60 L-15,5 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="1.5"
+            android:strokeColor="@color/rarity_rare_dark"
+            android:strokeAlpha="0.7"/>
+        <!-- Energy lines -->
+        <path
+            android:pathData="M-85,-110 L-85,-125 M85,-110 L85,-125 M-85,30 L-85,45 M85,30 L85,45 M-95,-50 L-90,-50 M95,-50 L90,-50 M-95,55 L-90,55 M95,55 L90,55"
+            android:strokeWidth="3"
+            android:strokeColor="@color/rarity_rare"
+            android:strokeLineCap="round"/>
+        <!-- Glow particles -->
+        <path
+            android:pathData="M-55,-130 L-50,-130 M55,-130 L50,-130 M-40,-140 L-35,-135 M40,-140 L35,-135"
+            android:strokeWidth="2"
+            android:strokeColor="@color/rarity_rare"
+            android:strokeAlpha="0.8"
+            android:strokeLineCap="round"/>
+        <!-- Rarity gems -->
+        <path
+            android:pathData="M-78,-142 L-58,-142 L-58,-122 L-78,-122 z M58,-142 L78,-142 L78,-122 L58,-122 z"
+            android:fillColor="@color/rarity_rare"/>
+    </group>
+</vector>

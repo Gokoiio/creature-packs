@@ -1,0 +1,52 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="340dp"
+    android:viewportWidth="240"
+    android:viewportHeight="340">
+    <!-- Common card template - clean geometric design -->
+    <group android:translateX="120" android:translateY="170">
+        <!-- Card background -->
+        <path
+            android:pathData="M-100,-150 L100,-150 L100,150 L-100,150 z"
+            android:fillColor="#1E1F29"
+            android:strokeWidth="3"
+            android:strokeColor="@color/rarity_common"/>
+        <!-- Inner frame -->
+        <path
+            android:pathData="M-90,-140 L90,-140 L90,140 L-90,140 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="1"
+            android:strokeColor="@color/rarity_common"
+            android:strokeAlpha="0.4"/>
+        <!-- Art area frame -->
+        <path
+            android:pathData="M-80,-120 L80,-120 L80,20 L-80,20 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="2"
+            android:strokeColor="@color/rarity_common"
+            android:strokeAlpha="0.5"/>
+        <!-- Creature silhouette placeholder - generic beast shape -->
+        <path
+            android:pathData="M-40,10 Q-40,-20 -10,-40 Q20,-40 20,-10 L30,-10 L30,60 Q30,80 10,80 L-10,80 Q-30,80 -30,60 L-30,10 z"
+            android:fillColor="@color/rarity_common"
+            android:strokeWidth="1"
+            android:strokeColor="@color/rarity_common_dark"/>
+        <!-- Inner detail -->
+        <path
+            android:pathData="M-25,5 Q-25,-10 -5,-20 Q15,-20 15,5 L20,5 L20,40 Q20,50 5,50 L-5,50 Q-15,50 -15,40 L-15,5 z"
+            android:fillColor="#00000000"
+            android:strokeWidth="1.5"
+            android:strokeColor="@color/rarity_common_dark"
+            android:strokeAlpha="0.6"/>
+        <!-- Accent dots -->
+        <path
+            android:pathData="M-50,-100 L-45,-100 M50,-100 L45,-100 M-60,-20 L-55,-20 M60,-20 L55,-20 M-60,50 L-55,50 M60,50 L55,50"
+            android:strokeWidth="3"
+            android:strokeColor="@color/rarity_common"
+            android:strokeLineCap="round"/>
+        <!-- Rarity indicator gems -->
+        <path
+            android:pathData="M-70,-130 L-60,-130 L-60,-120 L-70,-120 z M60,-130 L70,-130 L70,-120 L60,-120 z"
+            android:fillColor="@color/rarity_common"/>
+    </group>
+</vector>
