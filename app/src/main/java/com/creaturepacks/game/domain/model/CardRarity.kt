@@ -6,16 +6,16 @@ package com.creaturepacks.game.domain.model
  */
 enum class CardRarity(
     val displayName: String,
-    val color: Int, // packed ARGB int, resolved by the theme at runtime
+    val color: Long, // packed ARGB int, resolved by the theme at runtime
     val baseDropRate: Double, // 0..1 probability weight per slot
     val guaranteedEvery: Int? // null = no guarantee; N = at least once per N packs
 ) {
-    COMMON("Common", 0xFF94A3B8, 0.60, null),
-    UNCOMMON("Uncommon", 0xFF34D399, 0.25, null),
-    RARE("Rare", 0xFF60A5FA, 0.10, null),
-    EPIC("Epic", 0xFFC084FC, 0.04, null),
-    LEGENDARY("Legendary", 0xFFFBBF24, 0.009, 50),
-    SECRET("Secret", 0xFFE879F9, 0.001, 200);
+    COMMON("Common", 0xFF94A3B8L, 0.60, null),
+    UNCOMMON("Uncommon", 0xFF34D399L, 0.25, null),
+    RARE("Rare", 0xFF60A5FAL, 0.10, null),
+    EPIC("Epic", 0xFFC084FCL, 0.04, null),
+    LEGENDARY("Legendary", 0xFFFBBF24L, 0.009, 50),
+    SECRET("Secret", 0xFFE879F9L, 0.001, 200);
 
     companion object {
         fun fromName(name: String): CardRarity {
@@ -28,15 +28,15 @@ enum class CardRarity(
 /**
  * Original creature type / element. No real-world IP is referenced.
  */
-enum class CreatureType(val displayName: String, val color: Int) {
-    EMBER("Ember", 0xFFF87171),
-    FROST("Frost", 0xFF93C5FD),
-    LEAF("Leaf", 0xFF86EFAC),
-    SPARK("Spark", 0xFFFCD34D),
-    STONE("Stone", 0xFFE5E7EB),
-    SHADOW("Shadow", 0xFFC4B5FD),
-    LIGHT("Light", 0xFFFEF08A),
-    CRYSTAL("Crystal", 0xFFEDE9FE);
+enum class CreatureType(val displayName: String, val color: Long) {
+    EMBER("Ember", 0xFFF87171L),
+    FROST("Frost", 0xFF93C5FDL),
+    LEAF("Leaf", 0xFF86EFACL),
+    SPARK("Spark", 0xFFFCD34DL),
+    STONE("Stone", 0xFFE5E7EBL),
+    SHADOW("Shadow", 0xFFC4B5FDL),
+    LIGHT("Light", 0xFFFEF08AL),
+    CRYSTAL("Crystal", 0xFFEDE9FEL);
 
     companion object {
         fun fromName(name: String): CreatureType {
