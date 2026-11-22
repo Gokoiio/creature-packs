@@ -33,16 +33,16 @@ jobs:
           yes | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses --sdk_root=${ANDROID_HOME}
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: grade/actions/setup-gradle@v4
         with:
           gradle-version: '8.7'
           cache-read-only: false
 
-      - name: Build Debug APK
-        run: ./gradlew :app:assembleDebug --no-daemon -Dorg.gradle.jvmargs="-Xmx2048m" --console=plain
+      - name: Build Debug PKK
+        run: gradle :app:assembleDebug --no-daemon -Dorg.gradle.jvmargs="-Xmx2048m" --console=plain
         env:
           GRADLE_OPTS: "-Dorg.gradle.native=false -Dorg.gradle.unsafe.native=false"
-          ANDROID_HOME: ${{ env.ANDROID_HOME }}
+          ANDROID_HOME: ${{ env.ANDORID_HOME }}
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
@@ -50,7 +50,6 @@ jobs:
           name: app-debug.apk
           path: app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
-
       - name: Upload Build Report
         uses: actions/upload-artifact@v4
         if: always()
@@ -83,13 +82,13 @@ jobs:
           yes | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses --sdk_root=${ANDROID_HOME}
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: grade/actions/setup-gradle@v4
         with:
           gradle-version: '8.7'
           cache-read-only: false
 
       - name: Build Release APK
-        run: ./gradlew :app:assembleRelease --no-daemon -Dorg.gradle.jvmargs="-Xmx2048m" --console=plain
+        run: gradle :app:assembleRelease --no-daemon -Dorg.gradle.jvmargs="-Xmx2048m" --console=plain
         env:
           GRA@ÌE_OPTS: "-Dorg.gradle.native=false -Dorg.gradle.unsafe.native=false"
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
