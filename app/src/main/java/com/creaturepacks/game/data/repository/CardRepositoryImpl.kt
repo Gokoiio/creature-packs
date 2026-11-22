@@ -2,6 +2,7 @@ package com.creaturepacks.game.data.repository
 
 import android.content.Context
 import com.creaturepacks.game.data.local.room.AppDatabase
+import com.creaturepacks.game.data.local.room.entities.CardEntity
 import com.creaturepacks.game.data.sample.allCards
 import com.creaturepacks.game.domain.model.Card
 import com.creaturepacks.game.domain.repository.CardRepository
@@ -26,7 +27,7 @@ class CardRepositoryImpl(
     override fun getCard(cardId: String): Flow<Card?> =
         getAllCards().map { it.firstOrNull { it.id == cardId } }
 
-    override suspend fun addCard(cardId: String, quantity: Int = 1) {
+    override suspend fun addCard(cardId: String, quantity: Int) {
         val current = db.cardDao().getQuantity(cardId)
         db.cardDao().upsert(
             CardEntity(cardId = cardId, quantityOwned = current + quantity)
