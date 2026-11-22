@@ -2,10 +2,8 @@ package com.creaturepacks.game.data.repository
 
 import android.content.Context
 import com.creaturepacks.game.data.local.room.AppDatabase
-import com.creaturepacks.game.data.local.datastore.SettingsDataStore
+import com.creaturepacks.game.data.sample.allCards
 import com.creaturepacks.game.domain.model.Card
-import com.creaturepacks.game.domain.model.CardRarity
-import com.creaturepacks.game.domain.model.CreatureType
 import com.creaturepacks.game.domain.repository.CardRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -17,7 +15,7 @@ class CardRepositoryImpl(
 
     override fun getAllCards(): Flow<List<Card>> =
         db.cardDao().getAll().map { entities ->
-            sampleCards(context).map { sample ->
+            allCards().map { sample ->
                 val entity = entities.firstOrNull { it.cardId == sample.id }
                 sample.copy(
                     quantityOwned = entity?.quantityOwned ?: 0
