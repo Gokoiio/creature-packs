@@ -23,18 +23,19 @@ android {
             val debugKeystore = file("$buildDir/debug.keystore")
             if (!debugKeystore.exists()) {
                 val keytool = "${System.getenv("JAVA_HOME")}/bin/keytool"
-                val cmd = listOf(
-                    keytool, "-genkeypair",
-                    "-keystore", debugKeystore.absolutePath,
-                    "-storepass", "android",
-                    "-keypass", "android",
-                    "-alias", "androiddebugkey",
-                    "-keyalg", "RSA",
-                    "-keysize", "2048",
-                    "-validity", "10000",
-                    "-dname", "CN=Android Debug,O=Android,C=US"
-                )
-                cmd.runCommand()
+                project.exec {
+                    commandLine(
+                        keytool, "-genkeypair",
+                        "-keystore", debugKeystore.absolutePath,
+                        "-storepass", "android",
+                        "-keypass", "android",
+                        "-alias", "androiddebugkey",
+                        "-keyalg", "RSA",
+                        "-keysize", "2048",
+                        "-validity", "10000",
+                        "-dname", "CN=Android Debug,O=Android,C=US"
+                    )
+                }
             }
             storeFile = debugKeystore
             storePassword = "android"
@@ -96,9 +97,10 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.grapics)
+    implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
