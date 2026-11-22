@@ -32,8 +32,14 @@ jobs:
           echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-35" "build-tools;35.0.0" --sdk_root=${ANDROID_HOME}
           echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses --sdk_root=${ANDROID_HOME}
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+          cache-read-only: false
+
       - name: Build Debug APK
-        run: gradle :app:assembleDebug --no-daemon -Dorg.gradle.jvmargs="-Xmx2048m" --console=plain
+        run: ./gradlew :app:assembleDebug --no-daemon -Dorg.gradle.jvmargs="-Xmx2048m" --console=plain
         env:
           GRADLE_OPTS: "-Dorg.gradle.native=false -Dorg.gradle.unsafe.native=false"
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
@@ -76,8 +82,11 @@ jobs:
           echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-35" "build-tools;35.0.0" --sdk_root=${ANDROID_HOME}
           echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses --sdk_root=${ANDROID_HOME}
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+          cache-read-only: false
 
       - name: Build Release APK
         run: ./gradlew :app:assembleRelease --no-daemon -Dorg.gradle.jvmargs="-Xmx2048m" --console=plain
