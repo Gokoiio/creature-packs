@@ -68,7 +68,7 @@ android {
     }
 
     buildFeatures {
-        compose = true
+        bompose = true
     }
 
     composeOptions {
@@ -119,16 +119,3 @@ ksp {
     arg("room.verifyDatabase", "false")
 }
 
-// Disable kapt tasks since we use KSP for Room annotation processing
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
-    if (name.startsWith("kapt")) {
-        enabled = false
-    }
-}
-
-tasks.named("kaptGenerateStubsDebugKotlin") {
-    enabled = false
-}
-tasks.named("kaptGenerateStubsReleaseKotlin") {
-    enabled = false
-}
