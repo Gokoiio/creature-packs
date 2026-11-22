@@ -32,11 +32,8 @@ jobs:
           echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-35" "build-tools;35.0.0" --sdk_root=${ANDROID_HOME}
           echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses --sdk_root=${ANDROID_HOME}
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
       - name: Build Debug APK
-        run: ./gradlew :app:assembleDebug --no-daemon -Dorg.gradle.jvmargs="-Xmx2048m" --console=plain
+        run: gradle :app:assembleDebug --no-daemon -Dorg.gradle.jvmargs="-Xmx2048m" --console=plain
         env:
           GRADLE_OPTS: "-Dorg.gradle.native=false -Dorg.gradle.unsafe.native=false"
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
