@@ -31,7 +31,6 @@ jobs:
         uses: android-actions/setup-android@v3
         with:
           api-level: 35
-          ndk-version: r26d
           cmdline-tools-version: latest
           licenses: true
 
@@ -80,7 +79,6 @@ jobs:
         uses: android-actions/setup-android@v3
         with:
           api-level: 35
-          ndk-version: r26d
           cmdline-tools-version: latest
           licenses: true
 
