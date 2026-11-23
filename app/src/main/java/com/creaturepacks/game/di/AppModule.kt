@@ -45,7 +45,7 @@ class AppModule(private val application: Application) {
 
     fun getViewModelFactory(): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
-        override fun <T : androidx.lifecycle.ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
             return when (modelClass) {
                 HomeViewModel::class.java -> homeViewModel as T
                 CollectionViewModel::class.java -> collectionViewModel as T

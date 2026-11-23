@@ -14,11 +14,12 @@ import kotlinx.coroutines.flow.map
 private const val FILE_NAME = "creature_packs_settings.pb"
 
 object SettingsDataStore {
-    private var dataStore: DataStore<Preferences>? = null
+    private val Context.dataStore by preferencesDataStore(name = FILE_NAME)
+private var dataStore: DataStore<Preferences>? = null
 
     fun init(context: Context) {
         if (dataStore == null) {
-            dataStore = preferencesDataStore(context = context, fileName = FILE_NAME)
+            dataStore = context.dataStore
         }
     }
 
