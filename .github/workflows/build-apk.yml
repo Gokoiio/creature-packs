@@ -17,14 +17,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Generate Gradle wrapper
-        run: gradle wrapper --gradle-version 8.7
-
       - name: Accept Android SDK licenses
         run: yes | sdkmanager --licenses
 
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --no-daemon
+        run: gradle assembleDebug --no-daemon
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
