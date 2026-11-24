@@ -46,11 +46,13 @@ import androidx.compose.ui.unit.sp
 import com.creaturepacks.game.data.sample.BoosterSeries
 import com.creaturepacks.game.domain.model.Card
 import com.creaturepacks.game.domain.model.CardRarity
-import com.creaturepacks.game.ui.component.CreatureColors
+import com.creaturepacks.game.ui.theme.CreatureColors
 import com.creaturepacks.game.ui.component.CurrencyDisplay
 import com.creaturepacks.game.ui.component.RarityBadge
 import com.creaturepacks.game.ui.component.SectionHeader
 import com.creaturepacks.game.ui.theme.CreaturePacksTheme
+import com.creaturepacks.game.ui.util.getArtDrawableForCard
+import com.creaturepacks.game.ui.util.getPackDrawable
 import com.creaturepacks.game.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -532,21 +534,4 @@ fun ResultCard(card: Card) {
             }
         }
     }
-}
-
-fun getPackDrawable(name: String): Int = when (name) {
-    "pack_genesis" -> R.drawable.pack_genesis
-    "pack_ember" -> R.drawable.pack_ember
-    "pack_frost" -> R.drawable.pack_frost
-    "pack_crystal" -> R.drawable.pack_crystal
-    else -> R.drawable.pack_genesis
-}
-
-fun getArtDrawableForCard(card: Card, isOwned: Boolean): Int = when (card.rarity) {
-    CardRarity.COMMON -> R.drawable.art_template_common
-    CardRarity.UNCOMMON -> R.drawable.art_template_uncommon
-    CardRarity.RARE -> R.drawable.art_template_rare
-    CardRarity.EPIC -> R.drawable.art_template_epic
-    CardRarity.LEGENDARY -> R.drawable.art_template_legendary
-    CardRarity.SECRET -> R.drawable.art_template_secret
 }

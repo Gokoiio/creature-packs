@@ -9,15 +9,15 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.MenuAnchorType
+import androidx.compose.material3.ExposedDropdownMenuBox.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -35,9 +35,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.creaturepacks.game.domain.model.Card
 import com.creaturepacks.game.domain.model.CardRarity
-import com.creaturepacks.game.ui.component.CreatureColors
+import com.creaturepacks.game.ui.theme.CreatureColors
 import com.creaturepacks.game.ui.component.CreatureTypeIcon
 import com.creaturepacks.game.ui.component.RarityBadge
+import com.creaturepacks.game.ui.util.getArtDrawableForCard
 import com.creaturepacks.game.ui.component.SectionHeader
 import com.creaturepacks.game.ui.viewmodel.CollectionViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -302,13 +303,4 @@ fun CollectionCard(
             }
         }
     }
-}
-
-fun getArtDrawableForCard(card: Card, isOwned: Boolean): Int = when (card.rarity) {
-    CardRarity.COMMON -> R.drawable.art_template_common
-    CardRarity.UNCOMMON -> R.drawable.art_template_uncommon
-    CardRarity.RARE -> R.drawable.art_template_rare
-    CardRarity.EPIC -> R.drawable.art_template_epic
-    CardRarity.LEGENDARY -> R.drawable.art_template_legendary
-    CardRarity.SECRET -> R.drawable.art_template_secret
 }

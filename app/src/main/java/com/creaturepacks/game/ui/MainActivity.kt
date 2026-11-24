@@ -5,13 +5,28 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CollectionsBookmark
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Shop
+import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.navArgument
 import com.creaturepacks.game.di.AppModule
 import com.creaturepacks.game.ui.screen.BoosterShopScreen
 import com.creaturepacks.game.ui.screen.CollectionScreen
@@ -20,6 +35,11 @@ import com.creaturepacks.game.ui.screen.PackOpeningScreen
 import com.creaturepacks.game.ui.screen.ProfileScreen
 import com.creaturepacks.game.ui.theme.CreatureColors
 import com.creaturepacks.game.ui.theme.CreaturePacksTheme
+import com.creaturepacks.game.ui.viewmodel.HomeViewModel
+import com.creaturepacks.game.ui.viewmodel.CollectionViewModel
+import com.creaturepacks.game.ui.viewmodel.ShopViewModel
+import com.creaturepacks.game.ui.viewmodel.PlayerViewModel
+import com.creaturepacks.game.ui.viewmodel.SettingsViewModel
 
 class MainActivity : ComponentActivity() {
 
@@ -27,19 +47,19 @@ class MainActivity : ComponentActivity() {
         AppModule(application)
     }
 
-    private val homeViewModel by viewModels<com.creaturepacks.game.ui.viewmodel.HomeViewModel> {
+    private val homeViewModel by viewModels<HomeViewModel> {
         appModule.getViewModelFactory()
     }
-    private val collectionViewModel by viewModels<com.creaturepacks.game.ui.viewmodel.CollectionViewModel> {
+    private val collectionViewModel by viewModels<CollectionViewModel> {
         appModule.getViewModelFactory()
     }
-    private val shopViewModel by viewModels<com.creaturepacks.game.ui.viewmodel.ShopViewModel> {
+    private val shopViewModel by viewModels<ShopViewModel> {
         appModule.getViewModelFactory()
     }
-    private val playerViewModel by viewModels<com.creaturepacks.game.ui.viewmodel.PlayerViewModel> {
+    private val playerViewModel by viewModels<PlayerViewModel> {
         appModule.getViewModelFactory()
     }
-    private val settingsViewModel by viewModels<com.creaturepacks.game.ui.viewmodel.SettingsViewModel> {
+    private val settingsViewModel by viewModels<SettingsViewModel> {
         appModule.getViewModelFactory()
     }
 
@@ -75,15 +95,14 @@ class MainActivity : ComponentActivity() {
                     }
                     composable(
                         route = "pack_opening/{seriesCode}",
-                        arguments = listOf(androidx.compose.navigation.navArgument("seriesCode") { type = androidx.compose.navigation.NavType.StringType })
+                        arguments = listOf(navArgument("seriesCode") { type = NavType.StringType })
                     ) { backStackEntry ->
-                        val seriesCode = backStackEntry.getString() ?: "genesis"
+                        val seriesCode = backStackEntry.arguments?.getString("seriesCode") ?: "genesis"
                         val series = com.creaturepacks.game.data.sample.BOOSTER_SERIES.firstOrNull { it.code == seriesCode }
                             ?: com.creaturepacks.game.data.sample.BOOSTER_SERIES.first()
                         PackOpeningScreen(
                             series = series,
                             onCardsRevealed = { cards ->
-                                // Cards are added to collection via ShopViewModel
                                 shopViewModel.addCardsFromPack(cards)
                             },
                             onClose = {
@@ -114,11 +133,11 @@ fun BottomNavigationBar(navController: NavController) {
         Screen.Profile
     )
 
-    val currentRoute by navController.currentBackStackEntryAsState().map { it?.destination?.route ?: "" }
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route ?: ""
 
     NavigationBar(
-        modifier = androidx.compose.ui.Modifier.fillMaxWidth(),
-        backgroundColor = CreatureColors.SurfaceCard,
+        modifier = Modifier.fillMaxWidth(),
         containerColor = CreatureColors.SurfaceCard,
         contentColor = CreatureColors.TextPrimary
     ) {
@@ -126,13 +145,13 @@ fun BottomNavigationBar(navController: NavController) {
             val isSelected = currentRoute == screen.route
             NavigationBarItem(
                 icon = {
-                    androidx.compose.material3.Icon(
+                    Icon(
                         imageVector = screen.icon,
                         contentDescription = screen.title,
                         tint = if (isSelected) CreatureColors.Gold else CreatureColors.TextMuted
                     )
                 },
-                label = { androidx.compose.material3.Text(text = screen.title, fontSize = 10.sp) },
+                label = { Text(text = screen.title, fontSize = 10.sp) },
                 selected = isSelected,
                 onClick = {
                     navController.navigate(screen.route) {
@@ -147,9 +166,9 @@ fun BottomNavigationBar(navController: NavController) {
     }
 }
 
-sealed class Screen(val route: String, val title: String, val icon: androidx.compose.ui.graphics.vector.ImageVector) {
-    object Home : Screen("home", "Home", androidx.compose.material.icons.filled.Home)
-    object Collection : Screen("collection", "Collection", androidx.compose.material.icons.filled.CollectionsBookmark)
-    object Shop : Screen("shop", "Shop", androidx.compose.material.icons.filled.Shop)
-    object Profile : Screen("profile", "Profile", androidx.compose.material.icons.filled.Person)
+sealed class Screen(val route: String, val title: String, val icon: ImageVector) {
+    object Home : Screen("home", "Home", Icons.Filled.Home)
+    object Collection : Screen("collection", "Collection", Icons.Filled.CollectionsBookmark)
+    object Shop : Screen("shop", "Shop", Icons.Filled.Shop)
+    object Profile : Screen("profile", "Profile", Icons.Filled.Person)
 }

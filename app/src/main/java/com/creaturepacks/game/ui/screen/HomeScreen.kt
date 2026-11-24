@@ -16,7 +16,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsStateWithLifecycle
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,7 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.creaturepacks.game.data.sample.BOOSTER_SERIES
-import com.creaturepacks.game.ui.component.CreatureColors
+import com.creaturepacks.game.ui.theme.CreatureColors
 import com.creaturepacks.game.ui.component.CurrencyDisplay
 import com.creaturepacks.game.ui.component.RarityBadge
 import com.creaturepacks.game.ui.component.SectionHeader
@@ -35,6 +35,7 @@ import com.creaturepacks.game.ui.viewmodel.HomeViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.creaturepacks.game.ui.theme.CreaturePacksTheme
 import com.creaturepacks.game.R
+import com.creaturepacks.game.ui.util.getPackDrawable
 
 @Composable
 fun HomeScreen(
@@ -283,12 +284,4 @@ fun BoosterPreviewCard(
             }
         }
     }
-}
-
-fun getPackDrawable(name: String): Int = when (name) {
-    "pack_genesis" -> R.drawable.pack_genesis
-    "pack_ember" -> R.drawable.pack_ember
-    "pack_frost" -> R.drawable.pack_frost
-    "pack_crystal" -> R.drawable.pack_crystal
-    else -> R.drawable.pack_genesis
 }
