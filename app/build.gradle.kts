@@ -1,5 +1,3 @@
-System.setProperty("org.sqlite.tmpdir", "/storage/emulated/0/tmp")
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
